@@ -1,14 +1,44 @@
+.item1 {grid-area: image;}
+.item2 {grid-area: tags;}
+
 .header-container{
-    border: 1px #000000 solid;
-    height: 130px;
-}
-
-.tag{
-    text-align: right;
-}
-
-.main-container{
-    border: 1px #000000 solid;
-    height: 400px;
+    display: grid;
+    grid-row: auto;
+    grid-template-areas: 
+        'image tags tags tags tags tags';
+    height: 60px;
+    width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid #000000;
     text-align: center;
+    padding: 10px;
+}
+
+.header-container > nav{
+    height: 24px;
+    display:inline;
+    vertical-align:top;
+}
+
+.header-container > img{
+    width: 60px; 
+    height: 60px;
+    float: left;
+}
+
+.header-container > nav > a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font: bold;
+    line-height: 70px;
+    padding: 15px 15px;
+}
+
+.main{
+    text-align: center;
+}
+
+.profilePic{
+    width: 200px;
+    height: 200px;
 }

@@ -3,6 +3,7 @@
     width: 800px;
     height: 450px;
     text-align: center;
+    transition: 6s;
 }
 
 .odd-square{
@@ -13,7 +14,7 @@
     line-height: 50px;
     background-color: #151c7a;
     color: #ffffff;
-    transition: all 8s;
+    transition: all 6s;
 }
 
 .even-square{
@@ -24,13 +25,20 @@
     line-height: 50px;
     background-color: #848485;
     color: #ffffff;
-    transition: all 8s;
+    transition: all 6s;
 }
 
+
 #squares-container:hover .odd-square{
-    transform: translateX(250px) rotate(-1080deg) scale(0.75);
+    transform: translateX(calc(26vw - 25px)) rotate(-1080deg) scale(0.75, 0.75);
 }
 
 #squares-container:hover .even-square{
-    transform: translateX(-250px) rotate(1080deg) scale(2);
+    transform: translateX(calc(-20.5vw - 25px)) rotate(1080deg) scale(2, 2);
+}
+
+#squares-container:hover{
+    transition: 6s;
+    border-radius: 30px;
+    height: 485px;
 }

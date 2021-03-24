@@ -5,14 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/calculator.css">
+    <script src="/scripts/calculator.js"></script>
     <title>Simple Calculator</title>
-
-    <script>
-        function updateDisplay(newValue){
-            var d = document.getElementById('display');
-            d.innerHTML += newValue;
-        }
-    </script>
 </head>
 
 <body>
@@ -31,9 +25,9 @@
         <div class="button digit-1" onclick="updateDisplay('1')">1</div>
         <div class="button digit-2" onclick="updateDisplay('2')">2</div>
         <div class="button digit-3" onclick="updateDisplay('3')">3</div>
-        <div class="button delete" onclick="document.getElementById('display').innerHTML = ''">AC</div>
+        <div class="button delete" onclick="updateDisplay('')">AC</div>
         <div class="button digit-0" onclick="updateDisplay('0')">0</div>
-        <div class="button total" onclick="document.getElementById('display').innerHTML = eval(document.getElementById('display').innerHTML)">=</div>
+        <div class="button total" onclick="updateDisplay('=')">=</div>
     </div>
 </body>
 </html>

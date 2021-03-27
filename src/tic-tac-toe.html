@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/tic-tac-toe.css"> 
+    <script src="/scripts/tic-tac-toe.js"></script>
     <title>My Tic-Tac-Toe Game</title>
 </head>
 <body>
-    <div id="gameboard">
-        <div class="squares spot1">1</div>
-        <div class="squares spot2">2</div>
-        <div class="squares spot3">3</div>
-        <div class="squares spot4">4</div>
-        <div class="squares spot5">5</div>
-        <div class="squares spot6">6</div>
-        <div class="squares spot7">7</div>
-        <div class="squares spot8">8</div>
-        <div class="squares spot9">9</div>
+    <h1 class="gameinfo">Tic-Tac-Toe</h1>
+    <h2 class="gameinfo">Game Rules</h2>
+    <div class="gameinfo">
+            <li>Player 1 is X and player 2 is O. The two players take turns placing their marks in empty sqaures</li>
+            <li>The first player to get three in a row (horizontally, vertically, or diagonally) of their own marks wins the game.</li>
+            <li>If all sqaures are filled and neither player has three in a row, it's a tie.</li>
+            <p></p>
     </div>
+
+    <div id="gameboard">
+        <div class="squares">1</div>
+        <div class="squares">2</div>
+        <div class="squares">3</div>
+        <div class="squares">4</div>
+        <div class="squares">5</div>
+        <div class="squares">6</div>
+        <div class="squares">7</div>
+        <div class="squares">8</div>
+        <div class="squares">9</div>
+    </div>
+
+    <h2 class="gamestatus"></h2>
 </body>
 </html>

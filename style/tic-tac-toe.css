@@ -13,10 +13,10 @@
 
 
 .squares{
-    font-size: 70px;
+    font-size: 40px;
     text-align: center;
     cursor: pointer;
-    line-height: 130px;
+    line-height: 70px;
     border: 1px solid white;
 }
 

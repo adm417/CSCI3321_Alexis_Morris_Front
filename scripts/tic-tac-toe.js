@@ -1,27 +1,42 @@
 var gameOver = false;
 var currentPlayer = 'X';
 var totalMove = 0;
+const winMessage = () => 'player ${currentPlayer} has won';
 
-function placeMarker(spotId){
+function placeMarker(squares){
     if(!gameOver){
-        var spot = document.getElementById(spotId);
+        var spot = document.getElementById('squares');
 
         if(spot.isEmpty){
-            spot.innerHTML = currentPlayer;
+            spot.innerHTML = squares;
+            spot.innerHTML += currentPlayer;
+            
+            if(currentPlayerWon()){
+                updateGameStatus();
+            }
+            else{
+                totalMove++;
+                if(currentPlayer === 'X'){
+                    currentPlayer = 'O';
+                }
+                else if(currentPlayer === 'O'){
+                    currentPlayer = 'X';
+                }
+            }
         }
     }
 }
 
 function currentPlayerWon(){
-    var s1 = document.getElementById("spot1");
-    var s2 = document.getElementById("spot2");
-    var s3 = document.getElementById("spot3");
-    var s4 = document.getElementById("spot4");
-    var s5 = document.getElementById("spot5");
-    var s6 = document.getElementById("spot6");
-    var s7 = document.getElementById("spot7");
-    var s8 = document.getElementById("spot8");
-    var s9 = document.getElementById("spot9");
+    var s1 = document.getElementById('spot1');
+    var s2 = document.getElementById('spot2');
+    var s3 = document.getElementById('spot3');
+    var s4 = document.getElementById('spot4');
+    var s5 = document.getElementById('spot5');
+    var s6 = document.getElementById('spot6');
+    var s7 = document.getElementById('spot7');
+    var s8 = document.getElementById('spot8');
+    var s9 = document.getElementById('spot9');
 
     if((s1.innerHTML === s2.innerHTML && s2.innerHTML === s3.innerHTML) 
     || (s4.innerHTML === s5.innerHTML && s5.innerHTML === s6.innerHTML) 
@@ -32,8 +47,8 @@ function currentPlayerWon(){
     || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML)
     || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML))
     {
-        alert(s1.innerHTML);
-        alert("s1 value is " + s1.innerHTML)
+        //alert(s1.innerHTML);
+        //alert("s1 value is " + s1.innerHTML)
         gameOver = true;            
     }
     else{
@@ -48,13 +63,14 @@ function currentPlayerWon(){
             gameOver = false;
         }
     }
+    return gameOver;
 }
 
 function updateGameStatus(){
     var statusBoard = document.getElementById('status');
 
     if(gameOver){
-        statusBoard.innerHTML = 'Player X won!';
+        statusBoard.innerHTML = winMessage();
     }
     else{
         if(totalMove !== 9){

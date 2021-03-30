@@ -5,7 +5,7 @@ var totalMove = 0;
 function placeMarker(squares){
     if(!gameOver){
         var spot = document.getElementById(squares);
-
+        
         if(spot.innerHTML === ''){
             spot.innerHTML += currentPlayer;
             
@@ -46,7 +46,7 @@ function currentPlayerWon(){
     || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML && s1.innerHTML !== '')
     || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML && s3.innerHTML !== ''))
     {
-        gameOver = true;    
+        gameOver = true;
     }
     else{
         gameOver = false;
@@ -65,25 +65,59 @@ function currentPlayerWon(){
 
 function updateGameStatus(){
     var statusBoard = document.getElementById('gamestatus');
+    var btnChange = document.getElementById('btn');
 
     if(gameOver){
-        statusBoard.innerHTML = "Player " + currentPlayer + " has won";
+        statusBoard.innerHTML = "Player " + currentPlayer + " won!";
+        btnChange.innerHTML = 'Replay';
+        btnChange.style.display = 'block';
     }
     else{
         if(totalMove !== 9){
-            statusBoard.innerHTML = "Player " + currentPlayer + " it's your turn";
+            statusBoard.innerHTML = "Player " + currentPlayer + " it's your turn.";
         }
         else{
             statusBoard.innerHTML = "It is a tie.";
+            btnChange.innerHTML = 'Replay';
+            btnChange.style.display = 'block';
         }
     }
 }
 
-function replayGame(){
-    var replay = document.getElementById('btn');
-    //var display = replay.style.display;
+function gamebtn(){
+    var btnChange = document.getElementById('btn');
+    var status = document.getElementById('gamestatus');
+    var s1 = document.getElementById('spot1');
+    var s2 = document.getElementById('spot2');
+    var s3 = document.getElementById('spot3');
+    var s4 = document.getElementById('spot4');
+    var s5 = document.getElementById('spot5');
+    var s6 = document.getElementById('spot6');
+    var s7 = document.getElementById('spot7');
+    var s8 = document.getElementById('spot8');
+    var s9 = document.getElementById('spot9');
 
-    if((currentPlayerWon()) || (totalMove === 9)){
-        replay.style.display = 'block';
+    if(totalMove === 0){
+        updateGameStatus();
+        status.style.display = 'block';
+        btnChange.style.display = 'none';
+    }
+    else if((gameOver) || (totalMove === 9)){
+        s1.innerHTML = '';
+        s2.innerHTML = '';
+        s3.innerHTML = '';
+        s4.innerHTML = '';
+        s5.innerHTML = '';
+        s6.innerHTML = '';
+        s7.innerHTML = '';
+        s8.innerHTML = '';
+        s9.innerHTML = '';
+
+        currentPlayer = 'X';
+        gameOver = false;
+        totalMove = 0;
+        updateGameStatus();
+        status.style.display = 'block';
+        btnChange.style.display = 'none';
     }
 }

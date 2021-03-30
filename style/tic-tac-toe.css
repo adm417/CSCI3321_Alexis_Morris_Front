@@ -32,9 +32,10 @@
 #gamestatus{
     font-size: 30px;
     text-align: center;
+    display: none;
 }
 
-.relay{
+.replay{
     text-align: center;
     justify-content: center;
 }
@@ -43,5 +44,4 @@ button{
     text-align: center;
     font-size: 20px;
     margin: auto;
-    display: none;
 }

@@ -3,12 +3,13 @@ var currentPlayer = 'X';
 var totalMove = 0;
 const winMessage = () => 'player ${currentPlayer} has won';
 
+
 function placeMarker(squares){
     if(!gameOver){
         var spot = document.getElementById('squares');
 
         if(spot.isEmpty){
-            spot.innerHTML = squares;
+            //spot.innerHTML = squares;
             spot.innerHTML += currentPlayer;
             
             if(currentPlayerWon()){
@@ -22,6 +23,7 @@ function placeMarker(squares){
                 else if(currentPlayer === 'O'){
                     currentPlayer = 'X';
                 }
+                updateGameStatus();
             }
         }
     }
@@ -67,14 +69,14 @@ function currentPlayerWon(){
 }
 
 function updateGameStatus(){
-    var statusBoard = document.getElementById('status');
+    var statusBoard = document.getElementsByClassName('gamestatus');
 
     if(gameOver){
         statusBoard.innerHTML = winMessage();
     }
     else{
         if(totalMove !== 9){
-            statusBoard.innerHTML = 'Player O it is your turn'
+            statusBoard.innerHTML = 'Player ${currentPlayer} it is your turn'
         }
         else{
             statusBoard.innerHTML = 'It is a tie.'

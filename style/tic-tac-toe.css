@@ -4,6 +4,9 @@
     height: 400px;
     background-color: gold;
     margin: auto;
+    /*
+    grid-template-columns: repeat(3,auto);
+    */
     grid-template-areas: 
         'sqaure1 square2 sqaure3'
         'sqaure4 square5 sqaure6'
@@ -12,7 +15,7 @@
 }
 
 
-.squares{
+#squares{
     font-size: 40px;
     text-align: center;
     cursor: pointer;
@@ -65,5 +68,6 @@
 }
 
 .gamestatus{
+    font-size: 15px;
     text-align: center;
 }

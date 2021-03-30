@@ -1,14 +1,12 @@
 var gameOver = false;
 var currentPlayer = 'X';
 var totalMove = 0;
-const winMessage = () => 'player ${currentPlayer} has won';
-//var status = document.querySelector('.gamestatus');
 
 function placeMarker(squares){
     if(!gameOver){
         var spot = document.getElementById(squares);
 
-        if(spot.isEmpty === true){
+        if(spot.innerHTML === ''){
             spot.innerHTML += currentPlayer;
             
             if(currentPlayerWon()){
@@ -39,17 +37,15 @@ function currentPlayerWon(){
     var s8 = document.getElementById('spot8');
     var s9 = document.getElementById('spot9');
 
-    if((s1.innerHTML === s2.innerHTML && s2.innerHTML === s3.innerHTML) 
-    || (s4.innerHTML === s5.innerHTML && s5.innerHTML === s6.innerHTML) 
-    || (s7.innerHTML === s8.innerHTML && s8.innerHTML === s9.innerHTML) 
-    || (s1.innerHTML === s4.innerHTML && s4.innerHTML === s7.innerHTML)
-    || (s2.innerHTML === s5.innerHTML && s5.innerHTML === s8.innerHTML)
-    || (s3.innerHTML === s6.innerHTML && s6.innerHTML === s9.innerHTML)
-    || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML)
-    || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML))
+    if((s1.innerHTML === s2.innerHTML && s2.innerHTML === s3.innerHTML && s1.innerHTML !== '') 
+    || (s4.innerHTML === s5.innerHTML && s5.innerHTML === s6.innerHTML && s4.innerHTML !== '') 
+    || (s7.innerHTML === s8.innerHTML && s8.innerHTML === s9.innerHTML && s7.innerHTML !== '') 
+    || (s1.innerHTML === s4.innerHTML && s4.innerHTML === s7.innerHTML && s1.innerHTML !== '')
+    || (s2.innerHTML === s5.innerHTML && s5.innerHTML === s8.innerHTML && s2.innerHTML !== '')
+    || (s3.innerHTML === s6.innerHTML && s6.innerHTML === s9.innerHTML && s3.innerHTML !== '')
+    || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML && s1.innerHTML !== '')
+    || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML && s3.innerHTML !== ''))
     {
-        //alert(s1.innerHTML);
-        //alert("s1 value is " + s1.innerHTML)
         gameOver = true;            
     }
     else{
@@ -71,14 +67,14 @@ function updateGameStatus(){
     var statusBoard = document.getElementById('gamestatus');
 
     if(gameOver){
-        statusBoard.innerHTML = winMessage();
+        statusBoard.innerHTML = "Player " + currentPlayer + " has won";
     }
     else{
         if(totalMove !== 9){
-            statusBoard.innerHTML = 'Player ${currentPlayer} it is your turn'
+            statusBoard.innerHTML = "Player " + currentPlayer + " it's your turn";
         }
         else{
-            statusBoard.innerHTML = 'It is a tie.'
+            statusBoard.innerHTML = "It is a tie.";
         }
     }
 }

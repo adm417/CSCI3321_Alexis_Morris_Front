@@ -4,9 +4,6 @@
     height: 400px;
     background-color: gold;
     margin: auto;
-    /*
-    grid-template-columns: repeat(3,auto);
-    */
     grid-template-areas: 
         'sqaure1 square2 sqaure3'
         'sqaure4 square5 sqaure6'
@@ -15,13 +12,13 @@
 }
 
 .squares{
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     cursor: pointer;
-    /*line-height: 70px;*/
+    line-height: 130px;
     border: 1px solid white;
 }
-
+/*
 .spot1{
     grid-area: square1;
 }
@@ -57,7 +54,7 @@
 .spot9{
     grid-area: square9;
 }
-
+*/
 .gameinfo{
     text-align: center;
 }
@@ -67,6 +64,6 @@
 }
 
 #gamestatus{
-    font-size: 15px;
+    font-size: 30px;
     text-align: center;
 }

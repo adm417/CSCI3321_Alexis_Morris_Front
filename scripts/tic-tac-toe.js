@@ -46,7 +46,7 @@ function currentPlayerWon(){
     || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML && s1.innerHTML !== '')
     || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML && s3.innerHTML !== ''))
     {
-        gameOver = true;            
+        gameOver = true;    
     }
     else{
         gameOver = false;
@@ -76,5 +76,14 @@ function updateGameStatus(){
         else{
             statusBoard.innerHTML = "It is a tie.";
         }
+    }
+}
+
+function replayGame(){
+    var replay = document.getElementById('btn');
+    //var display = replay.style.display;
+
+    if((currentPlayerWon()) || (totalMove === 9)){
+        replay.style.display = 'block';
     }
 }

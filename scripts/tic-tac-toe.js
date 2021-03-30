@@ -2,14 +2,13 @@ var gameOver = false;
 var currentPlayer = 'X';
 var totalMove = 0;
 const winMessage = () => 'player ${currentPlayer} has won';
-
+//var status = document.querySelector('.gamestatus');
 
 function placeMarker(squares){
     if(!gameOver){
-        var spot = document.getElementById('squares');
+        var spot = document.getElementById(squares);
 
-        if(spot.isEmpty){
-            //spot.innerHTML = squares;
+        if(spot.isEmpty === true){
             spot.innerHTML += currentPlayer;
             
             if(currentPlayerWon()){
@@ -69,7 +68,7 @@ function currentPlayerWon(){
 }
 
 function updateGameStatus(){
-    var statusBoard = document.getElementsByClassName('gamestatus');
+    var statusBoard = document.getElementById('gamestatus');
 
     if(gameOver){
         statusBoard.innerHTML = winMessage();
